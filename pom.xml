@@ -26,78 +26,84 @@
 	 </dependency>
 	 <!-- 整合servlet依赖 -->
 	<dependency>
-	    <groupId>javax.servlet</groupId>  
-	    <artifactId>servlet-api</artifactId>  
-	    <version>2.5</version>  
-	    <scope>provided</scope>  
-	</dependency>  
-	<dependency>  
-	    <groupId>javax.servlet.jsp</groupId>  
-	    <artifactId>jsp-api</artifactId>  
-	    <version>2.2</version>  
-	    <scope>provided</scope>  
-	</dependency>  
-	<dependency>  
-	    <groupId>javax.servlet</groupId>  
-	    <artifactId>jstl</artifactId>  
-	    <version>1.2</version>  
-	</dependency>  
-	<dependency>  
-	    <groupId>jsptags</groupId>  
-	    <artifactId>pager-taglib</artifactId>  
-	    <version>2.0</version>  
-	    <scope>provided</scope>  
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>servlet-api</artifactId>
+	    <version>2.5</version>
+	    <scope>provided</scope>
+	</dependency>
+	<dependency>
+	    <groupId>javax.servlet.jsp</groupId>
+	    <artifactId>jsp-api</artifactId>
+	    <version>2.2</version>
+	    <scope>provided</scope>
+	</dependency>
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	<dependency>
+	    <groupId>jsptags</groupId>
+	    <artifactId>pager-taglib</artifactId>
+	    <version>2.0</version>
+	    <scope>provided</scope>
 	</dependency>
 	<!-- 整合servlet依赖结束 -->
 	
 	<!-- 整合spring开始 -->
 	<!-- spring核心包 -->  
 	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-core</artifactId>  
-	    <version>${spring.version}</version>  
-	</dependency> 
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-core</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
 	<!-- spring对web的支持 -->  
-	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-web</artifactId>  
-	    <version>${spring.version}</version>  
-	</dependency> 
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-web</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
 	<!-- spring对ORM映射的支持-->   
-	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-oxm</artifactId>  
-	    <version>${spring.version}</version>  
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-oxm</artifactId>
+	    <version>${spring.version}</version>
 	</dependency>
-	<!-- spring事务管理支持 -->   
-	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-tx</artifactId>  
-	    <version>${spring.version}</version>  
+	<!-- spring事务管理支持 -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>${spring.version}</version>
 	</dependency>
-	<!-- spring对JDBC的支持 -->  
-	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-jdbc</artifactId>  
-	    <version>${spring.version}</version>  
+	<!-- spring对JDBC的支持 -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>${spring.version}</version>
 	</dependency>
-	<!-- spring对MVC框架的支持 -->  
-	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-webmvc</artifactId>  
-	    <version>${spring.version}</version>  
+	<!-- spring对MVC框架的支持 -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>${spring.version}</version>
 	</dependency>
-	<!-- spring切面支持 -->  
-	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-aop</artifactId>  
-	    <version>${spring.version}</version>  
+	<!-- spring切面支持 -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-aop</artifactId>
+	    <version>${spring.version}</version>
 	</dependency>
-	<!-- spring上下文支持 -->  
-	<dependency>  
-	    <groupId>org.springframework</groupId>  
-	    <artifactId>spring-context</artifactId>  
-	    <version>${spring.version}</version>  
+	<!-- spring上下文支持 -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<!-- spring-context支持 -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context-support</artifactId>
+	    <version>${spring.version}</version>
 	</dependency>
 	<!-- AspectJ支持 -->
 	<dependency>
@@ -122,26 +128,13 @@
 	</dependency>
 	<!-- 整合mybatis结束 -->
 	
-	<!-- 整合velocity开始 -->
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+	<!-- freemarker整合 -->
 	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-context-support</artifactId>
-	    <version>${spring.version}</version>
+	    <groupId>org.freemarker</groupId>
+	    <artifactId>freemarker</artifactId>
+	    <version>2.3.23</version>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
-	<dependency>
-	    <groupId>org.apache.velocity</groupId>
-	    <artifactId>velocity</artifactId>
-	    <version>1.7</version>
-	</dependency>
-	<!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-tools -->
-	<dependency>
-	    <groupId>org.apache.velocity</groupId>
-	    <artifactId>velocity-tools</artifactId>
-	    <version>2.0</version>
-	</dependency>
-	<!-- 整合velocity结束 -->
+	<!-- 注意!低版本的freemarker不支持properties配置的读取!2.3.20会报错! -->
 	
 	<!-- mysql数据库连接jar包 -->
 	<dependency>
@@ -176,24 +169,23 @@
 	    <version>${slf4j.version}</version>
 	</dependency>
 	
-	
   </dependencies>
   
   <build>
       <plugins>
       <!-- maven打包插件 -->
-		<plugin>  
-		  <groupId>org.apache.maven.plugins</groupId>  
-		  <artifactId>maven-war-plugin</artifactId>  
-		  <version>3.0.0</version>  
-		  <configuration>  
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-war-plugin</artifactId>
+		  <version>3.0.0</version>
+		  <configuration>
 	      	<webResources>
 		        <resource>
-		            <directory>WebContent</directory>  
+		            <directory>WebContent</directory>
 		        </resource>
 		    </webResources>
-		  </configuration>  
-	    </plugin>  
+		  </configuration>
+	    </plugin>
       	<!-- java编译插件 -->
 		<plugin>
 		  <groupId>org.apache.maven.plugins</groupId>
@@ -205,7 +197,7 @@
 		    <encoding>UTF-8</encoding>
 		  </configuration>
 		</plugin>
-		<!-- Tomcat7插件 -->
+		<!-- Tomcat7插件
         <plugin>
           <groupId>org.apache.tomcat.maven</groupId>
           <artifactId>tomcat7-maven-plugin</artifactId>
@@ -215,7 +207,7 @@
           	<uriEncoding>UFT-8</uriEncoding>
           	<path>/</path>
           </configuration>
-        </plugin>
+        </plugin> -->
       </plugins>
   </build>
   

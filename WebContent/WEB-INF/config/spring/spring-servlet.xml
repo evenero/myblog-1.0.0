@@ -52,25 +52,32 @@
 		</property>
 	</bean>
 
-	<bean id="velocityConfig"
-		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-		<property name="resourceLoaderPath" value="/WEB-INF/views/velocity" />
+	<!-- 设置freeMarker的配置文件路径 -->
+	<bean id="freemarkerConfiguration"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="/WEB-INF/config/properties/freemarker.properties" />
 	</bean>
-
-
-
-	<!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
-	<bean id="velocityViewResolver"
-		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-		<!-- <property name="prefix" value="/WEB-INF/views/velocity" /> -->
-		<property name="suffix" value=".vm" />
-		<property name="contentType">
-			<value>text/html;charset=UTF-8</value>
-		</property>
-		<!-- <property name="layoutUrl" value="common/layout.vm" />指定layout文件 -->
-		<property name="toolboxConfigLocation" value="/WEB-INF/config/xml/toolbox.xml" />
+	<!-- Freemarker配置 -->
+	<bean id="freemarkerConfig"  
+	      class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+	    <property name="freemarkerSettings" ref="freemarkerConfiguration" />  
+	    <property name="templateLoaderPath" value="/WEB-INF/views/freemarker" />
+	    <!--设置一些常用的全局变量-->
+	    <!-- <property name="freemarkerVariables">
+		    <map>
+				<entry key="webRoot" value="/shop"></entry>  
+	            <entry key="jsRoot" value="/shop/js"></entry>   
+		    </map>
+		</property> -->
 	</bean>
+	<!--freemarker视图解释器,在请求时模型视图名称添加前后缀 -->  
+	<bean id="freemarkerViewResolver"  
+	      class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
+	    <property name="suffix" value=".ftl" />  
+	    <property name="contentType" value="text/html;charset=UTF-8" />  
+	</bean>
+	
+	<!-- 静态资源过滤 -->
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resource/" />
-
 
 </beans>
