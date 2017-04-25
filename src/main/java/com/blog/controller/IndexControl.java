@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class IndexControl {
-	@RequestMapping(method = RequestMethod.GET,value = "/hello")
+	@RequestMapping(method = RequestMethod.GET,value = "/index.htm")
 	public String welcome(){
-		System.err.println("hello!");
-		return "hello";
+		return "index";
 	}
 }
