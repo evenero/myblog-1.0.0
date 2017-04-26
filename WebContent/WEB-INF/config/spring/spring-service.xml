@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd "
+	default-autowire="byName">
+	
+	<!-- 注入service -->
+	<bean id="articleService" class="com.blog.service.ArticleServiceImpl" />
+	<bean id="pictureService" class="com.blog.service.PictureServiceImpl" />
+	<!-- 注入dao -->
+	<bean id="articleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	  <property name="mapperInterface" value="com.blog.dao.ArticleMapper" />
+	  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean id="pictureMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	  <property name="mapperInterface" value="com.blog.dao.PictureMapper" />
+	  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- <bean id="payFlowService" class="com.ucmed.pt.service.ali.PayFlowServiceImpl" />
+	
+	<bean id="msgThreadPoolFactory" class="com.ucmed.common.util.ThreadPoolFactory">
+        <property name="corePoolSize" value="${thread.msg.corePoolSize}" />
+        <property name="maximumPoolSize" value="${thread.msg.maximumPoolSize}" />
+        <property name="maxQueueSize" value="${thread.msg.maxQueueSize}" />
+        <property name="keepAliveTime" value="${thread.msg.keepAliveTime}" />
+    </bean>
+    
+    <bean id="imageConfig" class="com.ucmed.common.util.ImageConfig">
+	    <property name="uploadRoot" value="${image.upload.root}"/>
+	    <property name="prefix" value="${image.prefix}"/>
+	</bean>
+	
+	 <bean id="createImageCodeUtil" class="com.ucmed.common.util.CreateImageCodeUtil" /> -->
+</beans>
