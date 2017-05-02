@@ -15,5 +15,4 @@ public interface ArticleService {
 	List<Article> selectArticleList();
 	List<Map<String, Object>> getCommentsByArticleId(Integer id);
 //	逻辑事务处理
-	Map<String,Object> getAllArticle(); 
 }

@@ -1,16 +1,17 @@
 <#assign base=request.contextPath />
+<#include "/common/baseList.ftl"/>
 <!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title>博文浏览-${article.title}</title>
-		<link href="${base}/resources/css/styles.css" rel="stylesheet">
+		<!-- <link href="${base}/resources/css/styles.css" rel="stylesheet">
 		<link href="${base}/resources/css/view.css" rel="stylesheet">
-		<!-- 返回顶部调用 begin -->
+		返回顶部调用 begin
 		<link href="${base}/resources/css/lrtk.css" rel="stylesheet" />
 		<script type="text/javascript" src="${base}/resources/js/jquery.js"></script>
 		<script type="text/javascript" src="${base}/resources/js/js.js"></script>
-		<!-- 返回顶部调用 end-->
+		返回顶部调用 end -->
 		<!--[if lt IE 9]>
 		<script src="js/modernizr.js"></script>
 		<![endif]-->

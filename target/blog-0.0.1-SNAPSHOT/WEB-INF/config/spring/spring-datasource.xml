@@ -7,12 +7,14 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-2.5.xsd ">
+        
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-		destroy-method="close">
+	init-method="init" destroy-method="close">
+		<!-- 配置数据库连接 --> 
 		<property name="driverClassName">
 			<value>${jdbc.driverClassName}</value>
 		</property>
-		<property name="jdbcUrl">
+		<property name="url">
 			<value>${jdbc.url}</value>
 		</property>
 		<property name="username">
@@ -21,6 +23,16 @@
 		<property name="password">
 			<value>${jdbc.psw}</value>
 		</property>
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="1" />
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="10" />
+		<!-- 配置获取连接等待超时的时间 --> 
+		<property name="maxWait" value="10000" />
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --> 
+		<property name="minEvictableIdleTimeMillis" value="300000" />
 	</bean>
 
 	<!-- 配置事务管理器 -->
@@ -39,28 +51,16 @@
         <constructor-arg index="0" ref="sqlSessionFactory" /> 
     </bean> 
     
-    
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="classpath*:com/blog/dal/sqlmap/*.xml" />
-		<property name="configLocation" value="/WEB-INF/config/spring/mybatis.xml" >
-		</property>
-		<property name="plugins" >
-			<array>
-				<bean class="com.xqls.util.PageInterceptor">
-				</bean>
-			</array>
-		</property>
+		<property name="mapperLocations" value="classpath:com/blog/mapper/*.xml" />
+		<property name="configLocation" value="/WEB-INF/config/spring/mybatis.xml" />
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.xqls.dal.service.**" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 	
-	
-<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
-    <property name="maxUploadSize" value="10485760" />  
-</bean>
-<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven transaction-manager="transactionManager" />
  
 </beans> 

@@ -1,4 +1,5 @@
 <#assign base=request.contextPath />
+<#include "/common/baseList.ftl"/>
 <!doctype html>
 <html>
 	<head>
@@ -6,13 +7,13 @@
 		<title>Nero的个人博客</title>
 		<meta name="keywords" content="个人博客" />
 		<meta http-equiv="content-type" content="text/html;charset=utf-8">
-		<link href="${base}/resources/css/styles.css" rel="stylesheet">
+		<!-- <link href="${base}/resources/css/styles.css" rel="stylesheet">
 		<link href="${base}/resources/css/animation.css" rel="stylesheet">
-		<!-- 返回顶部调用 begin -->
+		返回顶部调用 begin
 		<link href="${base}/resources/css/lrtk.css" rel="stylesheet" />
 		<script type="text/javascript" src="${base}/resources/js/jquery.js"></script>
 		<script type="text/javascript" src="${base}/resources/js/js.js"></script>
-		<!-- 返回顶部调用 end-->
+		返回顶部调用 end -->
 		<!--[if lt IE 9]>
 		<script src="js/modernizr.js"></script>
 		<![endif]-->
@@ -40,12 +41,12 @@
 		    </figure>
 		    <div class="card">
 		      <h1>我的名片</h1>
-		      <p>网名：Nero&nbsp;&nbsp;|&nbsp;&nbsp;落夙</p>
+		      <p>网名：Nero&nbsp;|&nbsp;落夙</p>
 		      <p>职业：Java开发、网页制作</p>
-		      <p>电话：13662012345</p>
+		      <p>QQ：513568316</p>
 		      <p>Email：evenero@163.com</p>
 		      <ul class="linkmore">
-		        <li><a href="/" class="talk" title="给我留言"></a></li>
+		        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=513568316&site=qq&menu=yes" class="talk" title="给我留言"></a></li>
 		        <li><a href="/" class="address" title="联系地址"></a></li>
 		        <li><a href="/" class="email" title="给我写信"></a></li>
 		        <li><a href="/" class="photos" title="生活照片"></a></li>
@@ -57,84 +58,31 @@
 		  <div class="blank"></div>
 		  <div class="blogs">
 		    <ul class="bloglist">
+		      <#list articles as article>
 		      <li>
 		        <div class="arrow_box">
 		          <div class="ti"></div>
 		          <!--三角形-->
 		          <div class="ci"></div>
 		          <!--圆形-->
-		          <h2 class="title"><a href="/" target="_blank">我希望我的爱情是这样的</a></h2>
-		          <ul class="textinfo">
-		            <a href="/"><img src="${base}/resources/images/s1.jpg"></a>
-		            <p> 我希望我的爱情是这样的，相濡以沫，举案齐眉，平淡如水。我在岁月中找到他，依靠他，将一生交付给他。做他的妻子，他孩子的母亲，为他做饭，洗衣服，缝一颗掉了的纽扣。然后，我们一起在时光中变老。</p>
-		          </ul>
-		          <ul class="details">
-		            <li class="likes"><a href="#">10</a></li>
-		            <li class="comments"><a href="#">34</a></li>
-		            <li class="icon-time"><a href="#">2013-8-7</a></li>
-		          </ul>
-		        </div>
-		        <!--arrow_box end--> 
-		      </li>
-		      <li>
-		        <div class="arrow_box">
-		          <div class="ti"></div>
-		          <!--三角形-->
-		          <div class="ci"></div>
-		          <!--圆形-->
-		          <h2 class="title"><a href="/" target="_blank">谁更心软，谁就先长大</a></h2>
-		          <ul class="textinfo">
-		            <a href="/"><img src="${base}/resources/images/s2.jpg"></a>
-		            <p> 男人都是孩子，需要用一生时间来长大。女人都想当孩子，却最擅长的角色是妈妈。恋爱一开始，是两个孩子之间的游戏，到后来，成了大人和孩子之间的游戏。恋爱这回事，总要有一个人先长大，对另一半多些包容和宠溺。而通常来看：谁更心软，谁就先长大...</p>
-		          </ul>
-		          <ul class="details">
-		            <li class="likes"><a href="#">102</a></li>
-		            <li class="comments"><a href="#">58</a></li>
-		            <li class="icon-time"><a href="#">2013-8-7</a></li>
-		          </ul>
-		        </div>
-		        <!--arrow_box end--> 
-		      </li>
-		      <li>
-		        <div class="arrow_box">
-		          <div class="ti"></div>
-		          <!--三角形-->
-		          <div class="ci"></div>
-		          <!--圆形-->
-		          <h2 class="title"><a href="/" target="_blank">Nothing is as sweet as you</a></h2>
-		          <ul class="textinfo">
-		            <a href="/"><img src="${base}/resources/images/s3.jpg"></a>
-		            <p> 有时候不是我不理你，其实我也想你了，只是我不知道该对你说什么。不管过去如何，过去的已经过去，最好的总在未来等着你。当我们懂得珍惜平凡的幸福的时候，就已经成了人生的赢家。Nothing is as sweet as you再没什么，能甜蜜如你。我以为只要很认真的喜欢就能打动一个人</p>
-		          </ul>
-		          <ul class="details">
-		            <li class="likes"><a href="#">15</a></li>
-		            <li class="comments"><a href="#">2</a></li>
-		            <li class="icon-time"><a href="#">2013-8-7</a></li>
-		          </ul>
-		        </div>
-		        <!--arrow_box end--> 
-		      </li>
-		      <li>
-		        <div class="arrow_box">
-		          <div class="ti"></div>
-		          <!--三角形-->
-		          <div class="ci"></div>
-		          <!--圆形-->
-		          <h2 class="title"><a href="/" target="_blank">${article.title}</a></h2>
+		          <h2 class="title"><a href="${base}/article.htm?id=${article.id}" target="_blank">${article.title}</a></h2>
 		          <ul class="textinfo">
 		            <a href="${base}/article.htm?id=${article.id}"><img src="${article.imgUrl}"></a>
 		            <#if article.content?length gt 130>
 		            	${article.content?substring(0,130)+"..."+"</p>"}
+		            <#else>
+		            	${article.content}
 		            </#if>
 		          </ul>
 		          <ul class="details">
 		            <li class="likes"><a href="javascript:void(0)">${article.likes}</a></li>
-		            <li class="comments"><a href="javascript:void(0)">2</a></li>
+		            <li class="comments"><a href="javascript:void(0)">${article.comments?size}</a></li>
 		            <li class="icon-time"><a href="javascript:void(0)">发表时间:${article.createTime?string("yyyy-MM-dd")}</a>&nbsp;&nbsp;<a href="javascript:void(0)">最后更新:${article.updateTime?string("yyyy-MM-dd")}</a></li>
 		          </ul>
 		        </div>
 		        <!--arrow_box end--> 
 		      </li>
+		      </#list>
 		    </ul>
 		    <!--bloglist end-->
 		    <aside>
@@ -147,9 +95,6 @@
 		          <li><span><strong>4</strong></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
 		          <li><span><strong>5</strong></span><a href="/">女生清新个人博客网站模板</a></li>
 		          <li><span><strong>6</strong></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
-		          <li><span><strong>7</strong></span><a href="/">Column 三栏布局 个人网站模板</a></li>
-		          <li><span><strong>8</strong></span><a href="/">时间煮雨-个人网站模板</a></li>
-		          <li><span><strong>9</strong></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
 		        </ol>
 		      </div>
 		      <div class="toppic">
@@ -160,9 +105,6 @@
 		            </a></li>
 		          <li><a href="/"><img src="${base}/resources/images/k02.jpg">问前任，你还爱我吗？无限戳中泪点~
 		            <p>感兴趣</p>
-		            </a></li>
-		          <li><a href="/"><img src="${base}/resources/images/k03.jpg">世上所谓幸福，就是一个笨蛋遇到一个傻瓜。
-		            <p>喜欢</p>
 		            </a></li>
 		        </ul>
 		      </div>
@@ -175,9 +117,6 @@
 		          <li><span><a href="/">博客模板</a></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
 		          <li><span><a href="/">女生个人博客</a></span><a href="/">女生清新个人博客网站模板</a></li>
 		          <li><span><a href="/">Wedding</a></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
-		          <li><span><a href="/">三栏布局</a></span><a href="/">Column 三栏布局 个人网站模板</a></li>
-		          <li><span><a href="/">个人网站模板</a></span><a href="/">时间煮雨-个人网站模板</a></li>
-		          <li><span><a href="/">古典风格</a></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
 		        </ol>
 		      </div>
 		      <div class="search">
@@ -193,7 +132,7 @@
 		          <dd class="icon-album"><span></span>所属专辑：《赵小雷》</dd>
 		          <dd class="icon-like"><span></span><a href="/">喜欢</a></dd>
 		          <dd class="music">
-		            <audio src="images/nf.mp3" controls></audio>
+		            <audio src="${base}/resources/images/nf.mp3" controls></audio>
 		          </dd>
 		          <!--也可以添加loop属性 音频加载到末尾时，会重新播放-->
 		        </dl>

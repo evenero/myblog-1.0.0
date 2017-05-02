@@ -1,7 +1,6 @@
 package com.blog.controller;
 
-import java.util.Map;
-
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,9 +28,7 @@ public class IndexControl {
 	public String getArticleList(HttpServletRequest request,
 			ModelMap map,HttpServletResponse response){
 //		JSONObject res = JSONObject.fromObject(article);
-		Article article = articleService.selectByPrimaryKey(2);
-		map.put("article", article);
-		Map<String, Object> articles = articleService.getAllArticle();
+		List<Article> articles = articleService.selectArticleList();
 		map.put("articles", articles);
 		return "index";
 	}

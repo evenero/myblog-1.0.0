@@ -18,6 +18,7 @@
     <result column="temp1" property="temp1" jdbcType="VARCHAR" />
     <result column="temp2" property="temp2" jdbcType="VARCHAR" />
     <result column="temp3" property="temp3" jdbcType="VARCHAR" />
+    <association property="comments" column="id" select="com.blog.dao.CommentsMapper.selectByForeignKey" />
   </resultMap>
   <sql id="Base_Column_List" >
     <!--

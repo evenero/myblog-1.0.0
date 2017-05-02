@@ -1,6 +1,5 @@
 package com.blog.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,17 +51,17 @@ public class ArticleServiceImpl implements ArticleService{
 		return articleMapper.getCommentsByArticleId(id);
 	}
 
-	@Override
-	public Map<String, Object> getAllArticle() {
-		List<Article> articles = articleMapper.selectArticleList();
-		Map<String, Object> art_map = new HashMap<>();
-		for(Article art : articles){
-			Map<String, Object> map = new HashMap<String,Object>();
-			map.put("article", art);
-			map.put("comments", articleMapper.getCommentsByArticleId(art.getId()));
-			art_map.put(String.valueOf(art.getId()), map);
-		}
-		return art_map;
-	}
-
+//	@Override
+//	public List<Map<String, Object>> getAllArticle() {
+//		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+//		List<Article> articles = articleMapper.selectArticleList();
+//		for(Article art : articles){
+//			Map<String, Object> map = new HashMap<String,Object>();
+//			map.put("article", art);
+//			map.put("comments", articleMapper.getCommentsByArticleId(art.getId()));
+//			list.add(map);
+//		}
+//		return list;
+//	}
+	
 }
